@@ -9,7 +9,7 @@ const About = () => {
                 <div className="flex flex-wrap justify-between shadow-lg bg-white ">
 
                     <div className="max-w-screen-sm p-5    ">
-                        <h1 className='text-4xl text-black font-sans '>My skills</h1>
+                        <h1 className='text-4xl text-black font-sans text-center'>My skills</h1>
                         <div className="mt-3 pl-5 font-thin text-2xl lg:border-r-2 md:border-b-0 sm:border-b-2  border-b-2 border-gray-100">
                             <p className="mt-2">Teamwork.</p>
                             <p className="mt-2">Organized.</p>
@@ -20,14 +20,14 @@ const About = () => {
 
                         </div>
 
-                        <h1 className='text-4xl text-black font-sans mt-10 sm:text-center'>Lenguaje</h1>
+                        <h1 className='text-4xl text-black font-sans mt-10 text-center'>Lenguaje</h1>
                         <div className="max-w-screen-sm p-5 border-b-2 w-full  lg:border-r-2 md:border-b-0 sm:border-b-2   
                               border-gray-100 ">
                             <h1 className="mt-2 font-thin text-2xl sm:text-center">English: intermediate</h1>
 
                         </div>
 
-                        <h1 className='text-4xl text-black font-sans mt-10 sm:text-center'>knowledge</h1>
+                        <h1 className='text-4xl text-black font-sans mt-10 text-center'>knowledge</h1>
                         <div className="max-w-screen-sm p-5 border-b-2 w-full  lg:border-r-2 md:border-b-0 sm:border-b-2   
                               border-gray-100 font-thin text-2xl">
 
@@ -42,7 +42,7 @@ const About = () => {
                     </div>
 
                         <div className="max-w-screen-sm p-5">
-                            <h1 className='text-4xl text-black font-sans sm:text-center'>About me </h1>
+                            <h1 className='text-4xl text-black font-sans text-center'>About me </h1>
                             <p className='text-justify text-black  mt-10 font-thin text-xl'>
                                 👋Hello! I am Axel Huxley, recently graduated in software development engineering from the computer science faculty at the Autonomous Universidad Autonoma de Querétaro.
                             </p>
@@ -52,17 +52,18 @@ const About = () => {
                             </p>
 
                             <p className="text-justify text-black  mt-3 font-thin text-xl">
-                                Me apasiona el desarrollo web y móvil, considero que en la actualidad estas dos aspectos son muy importantes en nuestro día a día, cada vez estos aspectos están siendo mas usados por la población en general y esto conlleva a que en la actualidad sea difícil imaginar un mundo sin estos aspectos.
+                                i'm very apassionated for web develop and movil, i like to been on all process that's meaning that i like fronted and back-end and deployment because i like it how is the all process for build application and deploy it for production 
 
                             </p>
 
                             <p className="text-justify  text-black mt-3 font-thin text-xl">
 
-                                💻Los proyectos que eh realizado en su mayoría están hechos con el lenguaje de programación JavaScript, en su mayor parte eh trabajado con react, react native, node js, mongodb, mysql, graphql.
+                                💻The projects that I have done are mostly done with the JavaScript programming language, for the most part I have worked with react, react native, node js, mongodb, mysql, graphql.
                             </p>
 
                             <p className="text-justify  text-black mt-3 font-thin text-xl">
-                                🎯 Mi objetivo es desarrollar mi carrera profesional como desarrollador web o movil hasta poder convertirme en un desarrollador full-stack JavaScript, me gustaría formar parte de una empresa en la cual se me permita aplicar todos lo que he aprendido hasta ahora y seguir creciendo tanto personal como profesionalmente para lograr los mejores resultados posibles.
+                                🎯 My goal is to develop my professional career as a web or mobile developer until I can become a full-stack JavaScript developer, I would like to be part of a company in which I am allowed to apply all that I have learned so far and continue to grow both personally and professionally to achieve the best possible results.
+
                             </p>
 
                         </div>
