@@ -6,7 +6,7 @@ const About = () => {
 
             <div className="w-full flex flex-row justify-center ">
 
-                <div className="flex flex-wrap justify-between shadow-lg bg-white ">
+                <div className="flex flex-wrap justify-between shadow-lg bg-white rounded-xl ">
 
                     <div className="max-w-screen-sm p-5    ">
                         <h1 className='text-4xl text-black font-sans text-center'>My skills</h1>

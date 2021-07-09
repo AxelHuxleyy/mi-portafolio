@@ -2,7 +2,7 @@ import React from 'react';
 
 const Abaut = () => {
     return ( 
-        <div className="mx-4 mt-5 p-5 shadow-lg rounded-lg bg-white opacity-90 lg:mx-24 ">
+        <div className="mx-4 mt-5 p-5 shadow-lg rounded-xl bg-red-600 opacity-90 lg:mx-24">
             <h1 className="text-center  text-black text-xl uppercase font-bold">About me</h1>
             <p className='text-justify text-black  mt-10'>
             👋 ¡Hola! Soy Axel Huxley, recién egresado en ingeniería en desarrollo de software en la facultad de informática en la Universidad Autónoma de Querétaro.
