@@ -3,7 +3,7 @@ import 'tailwindcss/tailwind.css'
 import About from '../components/index/About'
 import Cover from '../components/index/Cover'
 import Projects from '../components/index/projects'
-
+import Contact from '../components/index/contact'
 
 export default function Home() {
   return (
@@ -11,6 +11,7 @@ export default function Home() {
       <Cover />
       <About />
       <Projects />
+      <Contact/>
     </div>
   )
 }
