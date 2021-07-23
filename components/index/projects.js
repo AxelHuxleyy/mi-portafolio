@@ -7,7 +7,7 @@ const Projects = () => {
                 <div className="flex flex-wrap w-full mb-20 flex-col items-center text-center">
                     <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900"> Projects</h1>
                     <p className="lg:w-1/2 w-full leading-relaxed text-base">
-                        on this part you can find the main project that has a really impact for me.
+                        On this part you can find the main project that has a grade impact on me.
                     </p>
                 </div>
                 <div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
