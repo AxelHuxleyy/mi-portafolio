@@ -51,13 +51,13 @@ const About = () => {
                                 🎓During this university stage I have developed many personal and academic projects, 
                                 in which I have been able to develop my communication skills, leadership, teamwork, tolerance, 
                                 and how to solve and address the different problems that I encountered. At the same time I was 
-                                studying, I took multiple courses on my own, such as: master in JAVASCRIPT, REACT JS, REACT NATIVE, 
-                                react advanced: NEXT JS, GRAPHQL, APOLLO, TAILWIND, REACT HOOKS, ORACLE, UNITY. In addition to doing 
+                                studying, I took multiple courses on my own, such as: master in JavaScript, React Js, React Native, 
+                                React advanced: Next Js, GraphQL, Apollo, Tailwind, React Hooks, Oracle, Unity. In addition to doing 
                                 the aforementioned, I also made a couple of websites for some SMEs.
                             </p>
 
                             <p className="text-justify text-black  mt-3 font-thin text-xl">
-                                i'm very passionated about WEB DEVELOP and MOVIL, i like to been on all process that's meaning that 
+                                i'm very passionated about web develop and movil, i like to been on all process that's meaning that 
                                 i like fronted and back-end and deployment because i like it how is the all process for build 
                                 application and deploy it for production 
 
@@ -69,7 +69,7 @@ const About = () => {
                             <p className="text-justify  text-black mt-3 font-thin text-xl">
 
                                 💻The projects that I have done are mostly done with the JavaScript programming language, 
-                                for the most part I have worked with REACT, REACT NATIVE, NODE JS, MONGODB, MYSQL, GRAPHQL.
+                                for the most part I have worked with React, React Native, Node js, Mongo db, mysql, GraphQL.
                             </p>
 
                             <p className="text-justify  text-black mt-3 font-thin text-xl">

@@ -5,7 +5,7 @@ const Contact = () => {
     return ( 
         <>
 
-        <div className="w-full flex flex-row justify-center mt-5 rounded-xl">
+        <div className="w-full flex flex-row justify-center mt-5 rounded-xl mb-5">
 
             <div className="flex flex-wrap justify-between shadow-lg bg-indigo-500 rounded-lg ">
 
