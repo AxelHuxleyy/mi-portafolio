@@ -10,7 +10,7 @@ const Contact = () => {
             <div className="flex flex-wrap justify-between shadow-lg bg-indigo-500 rounded-lg ">
 
                 <div className="max-w-screen-sm p-5  flex flex-col border-r-2 border-gray-50 ">
-                    <h1 className='text-4xl text-white font-sans text-center mt-4 '>My social Media</h1>
+                    <h1 className='text-4xl text-white font-sans text-center mt-4 '>My social media</h1>
                     <a href="https://github.com/AxelHuxleyy" className="bg-white rounded-lg w-full flex flex-row items-center hover:bg-gray-200 cursor-pointer justify-center mt-5">
                         <img src="https://cdn.iconscout.com/icon/free/png-256/github-3215409-2673827.png" className="bg-center bg-cover w-14 h-14" />
                         <p> my Github</p>
