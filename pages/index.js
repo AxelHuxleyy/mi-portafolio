@@ -16,6 +16,7 @@ export default function Home() {
       <ImportantProject />
       <Projects />
       <Contact/>
+      <About/>
     </div>
   )
 }
