@@ -15,8 +15,11 @@ export default function Home() {
       <Technologies />
       <ImportantProject />
       <Projects />
+<<<<<<< HEAD
       <Contact/>
       <About/>
+=======
+>>>>>>> 71475fb72b3442e1840574410c5496b89d3ca3f5
     </div>
   )
 }
