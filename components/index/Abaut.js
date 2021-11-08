@@ -7,10 +7,7 @@ const Abaut = () => {
             <p className='text-justify text-black  mt-10'>
             👋 ¡Hola!  Axel Huxley, recién egresado en ingeniería en desarrollo de software en la facultad de informática en la Universidad Autónoma de Querétaro.
             </p>
-            <p className="text-justify  text-black mt-3">
-            🎓Durante esta etapa universitaria he desarrollado muchos proyectos tanto personales como académicos, en los cuales he podido desarrollar mis habilidades de comunicación, liderazgo, trabajo en equipo, tolerancia, como resolver y abordar los disantos problemas con los que me encontraba. Al mismo tiempo que estudiaba tome múltiples cursos por mi cuenta como podrían ser: master en javaScript, react js, react native, react avanzado: next js, graphql, apollo, tailwind, react hooks, oracle, unity. Además de realizar lo antes mencionado también realice un par de sitios web para unas empresas pymes.
-
-            </p>
+           
 
            
             <p className="text-justify  text-black mt-3">
