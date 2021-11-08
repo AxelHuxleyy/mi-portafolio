@@ -10,6 +10,8 @@ import Technologies from '../components/index/technologies'
 export default function Home() {
   return (
     <div className="flex flex-col h-full bg-gray-50">
+      <Cover />
+      <About />
       <Technologies />
       <ImportantProject />
       <Projects />
