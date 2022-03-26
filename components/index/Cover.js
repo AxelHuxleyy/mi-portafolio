@@ -25,19 +25,14 @@ const TEXTS= [
   ]
 const Cover = () => {
     return (
-        <div class="w-full  shadow-md overflow-hidden  ">
-            <div className="bg-local  bg-no-repeat bg-cover bg-center" style={{ backgroundImage: 'url(fondo6.jpg)', height: 700}}>
+        <div class="w-full  shadow-md overflow-hidden f ">
+            <div className="bg-local  bg-no-repeat bg-cover bg-center h-screen" style={{ backgroundImage: 'url(coverIpad.jpg)'}}>
                 <Menu/>
                 <div class="flex  items-center justify-center  h-full flex-col">
 
                     <div className="bg-white backdrop-opacity-90 p-5 opacity-75">
-                        <div class="uppercase tracking-wide text-xl text-gray-500 font-medium text-center">!Hi, i'm</div>
-                        <Typical
-                            steps={TEXTS}
-                            loop={Infinity}
-                            wrapper="p"
-                            className="uppercase tracking-wide text-2xl  text-black font-semibold text-center"
-                        />
+                        <div class="uppercase tracking-wide text-xl lg:text-4xl text-gray-500 font-medium text-center">!Hi, i'm</div>
+                        <h1 className="uppercase tracking-wide text-2xl lg:text-6xl text-black font-semibold text-center">a Software developer </h1>
                     </div>
 
                 </div>
