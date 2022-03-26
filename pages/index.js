@@ -13,6 +13,7 @@ export default function Home() {
       <Technologies />
       <ImportantProject />
       <Projects />
+      <Contact />
     </div>
   )
 }
