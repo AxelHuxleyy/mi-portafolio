@@ -17,7 +17,7 @@ const Contact = () => {
                     </a>
                     <a href="https://www.linkedin.com/in/axel-huxley-ram%C3%ADrez-s%C3%A1nchez-58194b165/" className="bg-white rounded-lg w-full flex flex-row items-center hover:bg-gray-200 cursor-pointer justify-center mt-5 p-4">
                         <img src="https://image.flaticon.com/icons/png/512/174/174857.png" className="bg-center bg-cover w-8 h-8" />
-                        <p className="ml-3"> my Linkedin</p>
+                        <p className="ml-3"> my LinkedIn</p>
                     </a>
                 </div>
 

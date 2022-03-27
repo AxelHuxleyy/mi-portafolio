@@ -4,9 +4,9 @@ const importantProject = () => {
     return (
         <div className='w-full flex flex-row justify-center mt-3'>
             <div className="max-w-screen-lg p-5 md:w-screen shadow-lg bg-white rounded-xl  ">
-                <h1 className='text-4xl text-black font-sans text-center'>My must important project</h1>
+                <h1 className='text-4xl text-black font-sans text-center'>My most important project</h1>
                 <p className='text-justify text-black  mt-10 font-thin text-xl'>
-                    My must important project it's about of a crm, on this CRM you can mangament product, staff, orders and also you can see
+                    My most important project it's about of a crm, on this CRM you can mangament product, staff, orders and also you can see
                     different stats of your business.
                 </p>
                 <p className='text-justify text-black  mt-10 font-thin text-xl'>
