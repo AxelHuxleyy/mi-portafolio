@@ -6,7 +6,7 @@ import Experience from '../components/Experience';
 import Footer from '../components/Footer';
 import ScrollProgress from '../components/ScrollProgress';
 import ParticleField from '../components/ParticleField';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/temp';
 
 export default function Home() {
   return (
