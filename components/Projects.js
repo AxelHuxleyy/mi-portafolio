@@ -2,156 +2,16 @@
 import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Github, ExternalLink } from 'lucide-react';
+import { useLanguage } from '../lib/LanguageContext';
 
-const PROJECTS = [
-  {
-    title: 'Atomic Design System — Fortune 500',
-    description:
-      'Sistema de diseño global desde cero para plataformas web financieras. Arquitectura de componentes reutilizables con Atomic Design, mejorando consistencia de UI y reduciendo tiempo de desarrollo.',
-    tags: ['React', 'TypeScript', 'Atomic Design', 'MUI', 'Jest'],
-    color: '#6366f1',
-    icon: '🏗️',
-    featured: true,
-    github: '#',
-    demo: '#',
-  },
-  {
-    title: 'Plataforma de Inventario — HEB',
-    description:
-      'Plataforma interna de alto impacto para gestión de inventario y pricing. Soluciones cross-platform con React y React Native, algoritmos de búsqueda avanzados y state management robusto.',
-    tags: ['React', 'React Native', 'Redux', 'Ant Design', 'Axios'],
-    color: '#8b5cf6',
-    icon: '📦',
-    featured: true,
-    github: '#',
-    demo: '#',
-  },
-  {
-    title: 'CRM Full-Stack',
-    description:
-      'Sistema CRM robusto con React, GraphQL y MongoDB. Centralización de inventario, sales tracking y administración de RRHH. Dashboards de analítica en tiempo real.',
-    tags: ['React', 'GraphQL', 'MongoDB', 'Tailwind', 'Node.js'],
-    color: '#06b6d4',
-    icon: '📊',
-    featured: false,
-    github: '#',
-    demo: '#',
-  },
-  {
-    title: 'Cross-Platform Mobile Apps',
-    description:
-      'Aplicaciones móviles con sincronización offline-first usando React Native y Expo. Patrón de captura de datos sin conexión con sync automático al restaurar conectividad.',
-    tags: ['React Native', 'Expo', 'AsyncStorage', 'Push Notifications'],
-    color: '#10b981',
-    icon: '📱',
-    featured: false,
-    github: '#',
-    demo: '#',
-  },
-  {
-    title: 'E-Commerce MERN Stack',
-    description:
-      'Plataforma e-commerce especializada para retail con catálogos dinámicos, integraciones de API custom y gestión eficiente de productos.',
-    tags: ['React', 'Node.js', 'MongoDB', 'Express', 'REST API'],
-    color: '#f59e0b',
-    icon: '🛒',
-    featured: false,
-    github: '#',
-    demo: '#',
-  },
-  {
-    title: 'Portfolio Personal',
-    description:
-      'Este mismo portafolio. Diseño premium con Next.js 15, React 19, partículas interactivas, animaciones con Framer Motion y arquitectura App Router.',
-    tags: ['Next.js 15', 'React 19', 'Framer Motion', 'CSS3'],
-    color: '#ec4899',
-    icon: '🚀',
-    featured: false,
-    github: '#',
-    demo: '#',
-  },
-  {
-    title: 'Basic Example tanstack Query',
-    description:
-      'Ejemplo basico de uso de tanstack query, fetch, delete, create y update. Esta conectando con una api mimsa que puedes encontrar en el repo.',
-    tags: ['React 19', 'Tanstack Query', 'CSS3', 'Node.js', 'Tailwind'],
-    color: '#ff4154', // Rojo característico de TanStack
-    icon: '🔄',
-    featured: false,
-    github: 'https://github.com/AxelHuxleyy/tanstackQuery-basic-example',
-    demo: '#',
-  },
-  {
-    title: 'Chat App',
-    description:
-      'Creacion de un chat en tiempo real con socket.io, grafana y node.js. Desarrollo de front-end y back-end, mismos que se pueden encontrar en el repo.',
-    tags: ['React 19', 'Graph QL', 'CSS3', 'Node.js', 'Tailwind', 'socket.io'],
-    color: '#3b82f6', // Azul para comunicación/chat
-    icon: '💬',
-    featured: false,
-    github: 'https://github.com/AxelHuxleyy/chatapp',
-    demo: '#',
-  },
-  {
-    title: 'Algortimos en javaScript',
-    description:
-      'Biblioteca técnica de lógica computacional en JavaScript. Soluciones para grafos, árboles y algoritmos de ordenamiento enfocadas en optimizar el rendimiento y entender a fondo la complejidad algorítmica.',
-    tags: ['JavaScript', 'Algortimos'],
-    color: '#facc15', // Amarillo JavaScript
-    icon: '🧠',
-    featured: false,
-    github: 'https://github.com/AxelHuxleyy/algoritmos',
-    demo: '#',
-  },
-  {
-    title: 'Customer Relationship Management (CRM)',
-    description:
-      'Sistema de gestión CRM optimizado con GraphQL y React. Implementa consultas de datos eficientes para administración de prospectos, enfocándose en la modularidad, el alto rendimiento y la interactividad en tiempo real.',
-    tags: ['React', 'GraphQL', 'CRM', 'Apollo', 'Redux'],
-    color: '#22c55e', // Verde para CRM/Ventas
-    icon: '👥',
-    featured: false,
-    github: 'https://github.com/AxelHuxleyy/interface-crm-graphQL',
-    demo: '#',
-  },
-  {
-    title: 'Cinema club',
-    description:
-      'Plataforma cinematográfica construida con PHP. Enfocada en renderizado dinámico y bases de datos, ofrece una estructura sólida para administrar información multimedia mediante lógica servidor eficiente.',
-    tags: ['PHP', 'MySQL', 'HTML5', 'CSS3'],
-    color: '#7c3aed', // Violeta profundo para cine
-    icon: '🎬',
-    featured: false,
-    github: 'https://github.com/AxelHuxleyy/blog-movies',
-    demo: '#',
-  },
-  {
-    title: 'Copy instagram',
-    description:
-      'En el proyecto se busco realizar una copia de la aplicacion instagram, copiando unicamente lo visual sin conexiones a ninguna api.',
-    tags: ['React Native'],
-    color: '#f43f5e', // Rosa/Fucsia estilo Instagram
-    icon: '📸',
-    featured: false,
-    github: 'https://github.com/AxelHuxleyy/copy-instagram',
-    demo: '#',
-  },
-  {
-    title: 'Parallel Video Processing Engine',
-    description:
-      'Motor de procesamiento paralelo en Node.js que optimiza el uso de CPU mediante clusters. Automatiza la extracción, filtrado y renderizado de video utilizando FFmpeg y Jimp.',
-    tags: ['Node.js', 'FFmpeg', 'Jimp'],
-    color: '#0ea5e9', // Azul cielo para procesamiento/tecnología
-    icon: '🎞️',
-    featured: false,
-    github: 'https://github.com/AxelHuxleyy/video-to-video-filter-b-w',
-    demo: '#',
-  },
-];
+
 
 function SpotlightCard({ children, project, style }) {
   const cardRef = useRef(null);
   const [spotlight, setSpotlight] = useState({ x: 0, y: 0, visible: false });
+  const { t } = useLanguage();
+
+
 
   const handleMouse = (e) => {
     const rect = cardRef.current?.getBoundingClientRect();
@@ -386,8 +246,154 @@ function ProjectCard({ project, index }) {
 
 export default function Projects() {
   const [filter, setFilter] = useState('Todos');
+  const { t } = useLanguage();
+  const PROJECTS = [
+    {
+      title: t('projects.items.atomicDesign.title'),
+      description:
+        t('projects.items.atomicDesign.description'),
+      tags: ['React', 'TypeScript', 'Atomic Design', 'MUI', 'Jest'],
+      color: '#6366f1',
+      icon: '🏗️',
+      featured: true,
+      github: '#',
+      demo: '#',
+    },
+    {
+      title: t('projects.items.heb.title'),
+      description:
+        t('projects.items.heb.description'),
+      tags: ['React', 'React Native', 'Redux', 'Ant Design', 'Axios'],
+      color: '#8b5cf6',
+      icon: '📦',
+      featured: true,
+      github: '#',
+      demo: '#',
+    },
+    {
+      title: t('projects.items.crm.title'),
+      description:
+        t('projects.items.crm.description'),
+      tags: ['React', 'GraphQL', 'MongoDB', 'Tailwind', 'Node.js'],
+      color: '#06b6d4',
+      icon: '📊',
+      featured: false,
+      github: '#',
+      demo: '#',
+    },
+    {
+      title: t('projects.items.mobileApps.title'),
+      description:
+        t('projects.items.mobileApps.description'),
+      tags: ['React Native', 'Expo', 'AsyncStorage', 'Push Notifications'],
+      color: '#10b981',
+      icon: '📱',
+      featured: false,
+      github: '#',
+      demo: '#',
+    },
+    {
+      title: t('projects.items.ecommerce.title'),
+      description:
+        t('projects.items.ecommerce.description'),
+      tags: ['React', 'Node.js', 'MongoDB', 'Express', 'REST API'],
+      color: '#f59e0b',
+      icon: '🛒',
+      featured: false,
+      github: '#',
+      demo: '#',
+    },
+    {
+      title: t('projects.items.portfolio.title'),
+      description:
+        t('projects.items.portfolio.description'),
+      tags: ['Next.js 15', 'React 19', 'Framer Motion', 'CSS3'],
+      color: '#ec4899',
+      icon: '🚀',
+      featured: false,
+      github: '#',
+      demo: '#',
+    },
+    {
+      title: t('projects.items.tanstack.title'),
+      description:
+        t('projects.items.tanstack.description'),
+      tags: ['React 19', 'Tanstack Query', 'CSS3', 'Node.js', 'Tailwind'],
+      color: '#ff4154', // Rojo característico de TanStack
+      icon: '🔄',
+      featured: false,
+      github: 'https://github.com/AxelHuxleyy/tanstackQuery-basic-example',
+      demo: '#',
+    },
+    {
+      title: t('projects.items.chat.title'),
+      description:
+        t('projects.items.chat.description'),
+      tags: ['React 19', 'Graph QL', 'CSS3', 'Node.js', 'Tailwind', 'socket.io'],
+      color: '#3b82f6', // Azul para comunicación/chat
+      icon: '💬',
+      featured: false,
+      github: 'https://github.com/AxelHuxleyy/chatapp',
+      demo: '#',
+    },
+    {
+      title: t('projects.items.algorithms.title'),
+      description:
+        t('projects.items.algorithms.description'),
+      tags: ['JavaScript', 'Algortimos'],
+      color: '#facc15', // Amarillo JavaScript
+      icon: '🧠',
+      featured: false,
+      github: 'https://github.com/AxelHuxleyy/algoritmos',
+      demo: '#',
+    },
+    {
+      title: t('projects.items.crmGraphql.title'),
+      description:
+        t('projects.items.crmGraphql.description'),
+      tags: ['React', 'GraphQL', 'CRM', 'Apollo', 'Redux'],
+      color: '#22c55e', // Verde para CRM/Ventas
+      icon: '👥',
+      featured: false,
+      github: 'https://github.com/AxelHuxleyy/interface-crm-graphQL',
+      demo: '#',
+    },
+    {
+      title: t('projects.items.cinema.title'),
+      description:
+        t('projects.items.cinema.description'),
+      tags: ['PHP', 'MySQL', 'HTML5', 'CSS3'],
+      color: '#7c3aed', // Violeta profundo para cine
+      icon: '🎬',
+      featured: false,
+      github: 'https://github.com/AxelHuxleyy/blog-movies',
+      demo: '#',
+    },
+    {
+      title: t('projects.items.instagram.title'),
+      description:
+        t('projects.items.instagram.description'),
+      tags: ['React Native'],
+      color: '#f43f5e', // Rosa/Fucsia estilo Instagram
+      icon: '📸',
+      featured: false,
+      github: 'https://github.com/AxelHuxleyy/copy-instagram',
+      demo: '#',
+    },
+    {
+      title: t('projects.items.videoEngine.title'),
+      description:
+        t('projects.items.videoEngine.description'),
+      tags: ['Node.js', 'FFmpeg', 'Jimp'],
+      color: '#0ea5e9', // Azul cielo para procesamiento/tecnología
+      icon: '🎞️',
+      featured: false,
+      github: 'https://github.com/AxelHuxleyy/video-to-video-filter-b-w',
+      demo: '#',
+    },
+  ];
   const categories = [
-    'Todos',
+    t('projects.categories.filterAll'),
     'React',
     'React Native',
     'TypeScript',
@@ -401,13 +407,12 @@ export default function Projects() {
   return (
     <section id="projects" style={{ background: 'var(--bg-secondary)' }}>
       <div className="container">
-        <div className="section-label">Trabajo</div>
+        <div className="section-label">{t('projects.label')}</div>
         <h2 className="section-title">
-          Proyectos <span className="gradient-text">Destacados</span>
+          {t('projects.title')} <span className="gradient-text">{t('projects.titleHighlight')}</span>
         </h2>
         <p className="section-subtitle">
-          Proyectos reales que demuestran liderazgo técnico, arquitectura
-          escalable y desarrollo full-stack.
+          {t('projects.subtitle')}
         </p>
 
         {/* Filter tabs */}

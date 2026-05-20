@@ -1,16 +1,19 @@
 'use client';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../lib/LanguageContext';
 
 export default function About() {
+  const { t, lang } = useLanguage();
+
   const facts = [
-    { icon: '🏢', label: 'Empresa actual', value: 'Accenture' },
-    { icon: '👨‍💼', label: 'Rol', value: 'Sr. UI Team Lead' },
-    { icon: '📍', label: 'Ubicación', value: 'Querétaro, MX' },
-    { icon: '🎓', label: 'Educación', value: 'Ing. Software' },
-    { icon: '🌐', label: 'Idiomas', value: 'Español / Inglés C1' },
-    { icon: '🏗️', label: 'Arquitectura', value: 'Atomic Design' },
-    { icon: '🧪', label: 'Testing', value: '80% Coverage' },
-    { icon: '⚡', label: 'Disponibilidad', value: 'Remote / Híbrido' },
+    { icon: '🏢', label: t('about.facts.company'),      value: 'Accenture' },
+    { icon: '👨‍💼', label: t('about.facts.role'),         value: 'Sr. UI Team Lead' },
+    { icon: '📍', label: t('about.facts.location'),     value: 'Querétaro, MX' },
+    { icon: '🎓', label: t('about.facts.education'),    value: lang === 'es' ? 'Ing. Software' : 'Software Eng.' },
+    { icon: '🌐', label: t('about.facts.languages'),    value: lang === 'es' ? 'Español / Inglés C1' : 'Spanish / English C1' },
+    { icon: '🏗️', label: t('about.facts.architecture'), value: 'Atomic Design' },
+    { icon: '🧪', label: t('about.facts.testing'),      value: '80% Coverage' },
+    { icon: '⚡', label: t('about.facts.availability'), value: t('about.factValues.availability') },
   ];
 
   return (
@@ -31,11 +34,12 @@ export default function About() {
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
           >
-            <div className="section-label">Sobre mí</div>
+            <div className="section-label">{t('about.label')}</div>
             <h2 className="section-title">
-              Liderando equipos que
+              {t('about.title1')}
               <br />
-              construyen a <span className="gradient-text">escala</span>
+              {t('about.title2')}{' '}
+              <span className="gradient-text">{t('about.titleHighlight')}</span>
             </h2>
             <p
               style={{
@@ -45,14 +49,11 @@ export default function About() {
                 fontSize: '1rem',
               }}
             >
-              Soy un UI Team Leader & Software Engineer con{' '}
+              {t('about.p1a')}{' '}
               <strong style={{ color: 'var(--text-primary)' }}>
-                6+ años de experiencia
+                {t('about.p1b')}
               </strong>{' '}
-              construyendo aplicaciones web y móviles para clientes Fortune 500
-              en Accenture. Lidero un equipo de 8+ developers, diseñando
-              sistemas de diseño a escala global con Atomic Design y asegurando
-              un estándar de 80% de cobertura en testing.
+              {t('about.p1c')}
             </p>
             <p
               style={{
@@ -62,10 +63,7 @@ export default function About() {
                 fontSize: '1rem',
               }}
             >
-              Especializado en el ecosistema React, transformo requerimientos
-              complejos de negocio en arquitecturas escalables con zero-latency
-              feel. Apasionado por el puente entre complejidad técnica y
-              crecimiento de negocio.
+              {t('about.p2')}
             </p>
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
@@ -75,7 +73,7 @@ export default function About() {
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
               >
-                Ver trayectoria
+                {t('about.cta')}
               </motion.a>
             </div>
           </motion.div>
@@ -138,15 +136,11 @@ export default function About() {
                   border: '1px dashed rgba(139,92,246,0.15)',
                 }}
               />
-              {/* Orbiting dots */}
+              {/* Orbiting dot */}
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                style={{
-                  position: 'absolute',
-                  inset: -20,
-                  borderRadius: '50%',
-                }}
+                style={{ position: 'absolute', inset: -20, borderRadius: '50%' }}
               >
                 <div
                   style={{

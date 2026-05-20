@@ -1,89 +1,72 @@
 'use client'
 import { motion } from 'framer-motion'
+import { useLanguage } from '../lib/LanguageContext';
 
-const EXPERIENCE = [
-  {
-    role: 'Sr. Analyst / UI Team Lead',
-    company: 'Accenture',
-    period: 'Mar 2022 — Presente',
-    type: 'Full-time',
-    color: '#6366f1',
-    description:
-      'Liderazgo de equipo de 8+ developers para clientes Fortune 500 del sector financiero. Arquitectura de sistemas de diseño globales con Atomic Design y desarrollo cross-platform.',
-    achievements: [
-      'Lideré y mentoricé un equipo de alto rendimiento de 8 developers, supervisando code reviews y crecimiento técnico',
-      'Arquitecté un sistema Atomic Design global desde cero para plataformas web financieras Fortune 500',
-      'Contribución técnica clave en desarrollo de apps móviles cross-platform con React Native',
-      'Reduje drásticamente el time-to-market con spikes arquitectónicos y API mocking con MSW',
-      'Modernicé el state management integrando TanStack Query y Redux Toolkit',
-      'Establecí estándar mandatorio de 80% de cobertura en unit testing con Jest y RTL',
-      'Colaboración con stakeholders multinacionales traduciendo requerimientos complejos a arquitecturas web',
-    ],
-    stack: ['React', 'TypeScript', 'MUI', 'React Native', 'TanStack Query', 'Jest', 'MSW'],
-  },
-  {
-    role: 'Front-end Developer',
-    company: 'HEB',
-    period: 'Sep 2021 — Dic 2021',
-    type: 'Full-time',
-    color: '#8b5cf6',
-    description:
-      'Desarrollo de plataforma interna de alto impacto para gestión de inventario y pricing. Soluciones cross-platform con React y React Native.',
-    achievements: [
-      'Desarrollé plataforma interna para gestión de inventario y pricing en tiempo récord',
-      'Ingeniería de soluciones cross-platform (web + móvil) con React y React Native',
-      'Implementé algoritmos de búsqueda avanzados para optimizar el descubrimiento de productos',
-      'Arquitecté state management robusto con Redux y comunicación API con Axios',
-      'Diseñé componentes profesionales con Ant Design, traduciendo prototipos Adobe XD pixel-perfect',
-    ],
-    stack: ['React', 'React Native', 'Redux', 'Ant Design', 'Axios', 'CSS'],
-  },
-  {
-    role: 'Internship — Backend Developer',
-    company: 'Neoris',
-    period: 'Ene 2021 — Jun 2021',
-    type: 'Internship',
-    color: '#06b6d4',
-    description:
-      'Desarrollo de APIs RESTful y microservicios. Gestión de bases de datos PostgreSQL y Oracle con enfoque en calidad de código y CI/CD.',
-    achievements: [
-      'Desarrollé y mantuve APIs RESTful y microservicios con Java y Spring Boot',
-      'Gestión de bases de datos PostgreSQL y Oracle, optimizando queries complejas',
-      'Implementé unit tests automatizados con JUnit manteniendo alta cobertura',
-      'Colaboración en entorno Ágil (Scrum) utilizando Jenkins para CI',
-    ],
-    stack: ['Java', 'Spring Boot', 'PostgreSQL', 'Oracle', 'JUnit', 'Jenkins'],
-  },
-  {
-    role: 'Software Developer',
-    company: 'Freelance',
-    period: 'Ene 2018 — Mar 2019',
-    type: 'Freelance',
-    color: '#f59e0b',
-    description:
-      'Desarrollo full-stack independiente: CRM systems, e-commerce platforms, landing pages y dashboards de analítica para clientes diversos.',
-    achievements: [
-      'Desarrollé CRM full-stack con React, GraphQL y MongoDB para operaciones de negocio',
-      'Ingeniería de dashboards de analítica en tiempo real con Axios y Tailwind CSS',
-      'Diseñé plataformas e-commerce especializadas (MERN stack) para retail',
-      'Construí landing pages de alto rendimiento con PHP y CSS para sectores industrial y automotriz',
-      'Aprendizaje autodidacta de GraphQL para resolver requisitos complejos de data',
-    ],
-    stack: ['React', 'GraphQL', 'MongoDB', 'Node.js', 'Tailwind', 'PHP'],
-  },
-]
 
 export default function Experience() {
+  const { t } = useLanguage();
+  const EXPERIENCE = [
+    {
+      role: 'Sr. Analyst / UI Team Lead',
+      company: 'Accenture',
+      period: 'Mar 2022 — Presente',
+      type: 'Full-time',
+      color: '#6366f1',
+      description: t('experience.items.accenture.description'),
+      achievements: [
+        t('experience.items.accenture.achievements'),
+      ],
+      stack: ['React', 'TypeScript', 'MUI', 'React Native', 'TanStack Query', 'Jest', 'MSW'],
+    },
+    {
+      role: 'Front-end Developer',
+      company: 'HEB',
+      period: 'Sep 2021 — Dic 2021',
+      type: 'Full-time',
+      color: '#8b5cf6',
+      description:
+        t('experience.items.heb.description'),
+      achievements: [
+        t('experience.items.heb.achievements'),
+      ],
+      stack: ['React', 'React Native', 'Redux', 'Ant Design', 'Axios', 'CSS'],
+    },
+    {
+      role: 'Internship — Backend Developer',
+      company: 'Neoris',
+      period: 'Ene 2021 — Jun 2021',
+      type: 'Internship',
+      color: '#06b6d4',
+      description:
+        t('experience.items.neoris.description'),
+      achievements: [
+        t('experience.items.neoris.achievements'),
+      ],
+      stack: ['Java', 'Spring Boot', 'PostgreSQL', 'Oracle', 'JUnit', 'Jenkins'],
+    },
+    {
+      role: 'Software Developer',
+      company: 'Freelance',
+      period: 'Ene 2018 — Mar 2019',
+      type: 'Freelance',
+      color: '#f59e0b',
+      description:
+        t('experience.items.freelance.description'),
+      achievements: [
+        t('experience.items.freelance.achievements'),
+      ],
+      stack: ['React', 'GraphQL', 'MongoDB', 'Node.js', 'Tailwind', 'PHP'],
+    },
+  ]
   return (
     <section id="experience">
       <div className="container">
-        <div className="section-label">Trayectoria</div>
+        <div className="section-label">{t('experience.label')}</div>
         <h2 className="section-title">
-          Mi <span className="gradient-text">Experiencia</span>
+          {t('experience.title')} <span className="gradient-text">{t('experience.titleHighlight')}</span>
         </h2>
         <p className="section-subtitle">
-          De freelancer a líder de equipo en Accenture — una trayectoria de
-          crecimiento constante en el desarrollo de software.
+          {t('experience.subtitle')}
         </p>
 
         <div style={{ position: 'relative', maxWidth: 880 }}>

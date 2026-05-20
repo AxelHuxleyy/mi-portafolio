@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, Mail, Briefcase } from 'lucide-react';
+import { useLanguage } from '../lib/LanguageContext';
 
 const ROLES = [
   'UI Team Leader',
@@ -48,6 +49,7 @@ function AnimatedCounter({ target, suffix = '' }) {
 }
 
 export default function Hero() {
+  const { t } = useLanguage();
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayed, setDisplayed] = useState('');
   const [deleting, setDeleting] = useState(false);
@@ -74,9 +76,9 @@ export default function Hero() {
   }, [displayed, deleting, roleIndex]);
 
   const stats = [
-    { num: '6', suffix: '+', label: 'Años de experiencia' },
-    { num: '8', suffix: '+', label: 'Developers liderados' },
-    { num: '15', suffix: '+', label: 'Tecnologías dominadas' },
+    { num: '6', suffix: '+', label: t('hero.stats.experience') },
+    { num: '8', suffix: '+', label: t('hero.stats.developers') },
+    { num: '15', suffix: '+', label: t('hero.stats.technologies') },
   ];
 
   return (
@@ -198,7 +200,7 @@ export default function Hero() {
                 letterSpacing: '0.05em',
               }}
             >
-              Disponible para nuevos retos
+              {t('hero.badge')}
             </span>
           </motion.div>
 
@@ -214,7 +216,7 @@ export default function Hero() {
               color: 'var(--text-primary)',
             }}
           >
-            Hola, soy{' '}
+            {t('hero.greeting')}{' '}
             <span
               style={{
                 background:
@@ -269,18 +271,18 @@ export default function Hero() {
               marginBottom: 48,
             }}
           >
-            Lidero equipos de desarrollo y construyo experiencias web y móviles
-            de alto impacto para clientes{' '}
+            {t('hero.description')}{' '}
             <span style={{ color: 'var(--accent)', fontWeight: 600 }}>
               Fortune 500
             </span>
-            . Especializado en{' '}
+            . {t('hero.specializedIn')}{' '}
             <span style={{ color: '#8b5cf6', fontWeight: 600 }}>React</span>,{' '}
-            <span style={{ color: '#06b6d4', fontWeight: 600 }}>Next.js</span> y{' '}
+            <span style={{ color: '#06b6d4', fontWeight: 600 }}>Next.js</span>{' '}
+            {t('lang') === 'en' ? 'and ' : 'y '}
             <span style={{ color: '#ec4899', fontWeight: 600 }}>
               React Native
             </span>{' '}
-            con arquitectura{' '}
+            {t('hero.withArchitecture')}{' '}
             <span style={{ color: '#f59e0b', fontWeight: 600 }}>
               Atomic Design
             </span>
@@ -303,7 +305,7 @@ export default function Hero() {
               whileTap={{ scale: 0.97 }}
             >
               <Briefcase size={16} />
-              Ver Proyectos
+              {t('hero.ctaProjects')}
             </motion.a>
             <motion.a
               href="/cv-axel.pdf"
@@ -314,7 +316,7 @@ export default function Hero() {
               style={{ borderStyle: 'dashed' }}
             >
               <ArrowDown size={16} />
-              Descargar CV
+              {t('hero.ctaCV')}
             </motion.a>
           </div>
 
@@ -322,7 +324,7 @@ export default function Hero() {
           <div style={{ display: 'flex', gap: 56, flexWrap: 'wrap' }}>
             {stats.map((stat, i) => (
               <motion.div
-                key={stat.label}
+                key={i}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 + i * 0.15, duration: 0.6 }}

@@ -1,5 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
+import { useLanguage } from '../lib/LanguageContext'
 
 const SKILLS = [
   {
@@ -152,16 +153,17 @@ function SkillBar({ name, level, color, delay }) {
 }
 
 export default function Skills() {
+  const { t, lang } = useLanguage();
+
   return (
     <section id="skills">
       <div className="container">
-        <div className="section-label">Stack Tecnológico</div>
+        <div className="section-label">{t('skills.label')}</div>
         <h2 className="section-title">
-          Mis <span className="gradient-text">Habilidades</span>
+          Mis <span className="gradient-text">{t('skills.titleHighlight')}</span>
         </h2>
         <p className="section-subtitle">
-          Tecnologías y herramientas que utilizo para construir productos
-          digitales de clase mundial en Accenture y proyectos propios.
+          {t('skills.subtitle')}
         </p>
 
         {/* Skill categories grid */}
@@ -232,7 +234,7 @@ export default function Skills() {
               textTransform: 'uppercase',
             }}
           >
-            Ecosistema completo
+            {t('skills.ecosystem')}
           </p>
           <div
             style={{

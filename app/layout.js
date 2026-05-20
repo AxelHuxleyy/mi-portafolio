@@ -1,4 +1,5 @@
 import './globals.css'
+import { LanguageProvider } from '../lib/LanguageContext'
 
 export const metadata = {
   title: 'Axel Huxley Ramírez — UI Team Leader & Software Engineer',
@@ -36,7 +37,9 @@ export default function RootLayout({ children }) {
           <div className="aurora-blob aurora-blob-2" />
           <div className="aurora-blob aurora-blob-3" />
         </div>
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   )

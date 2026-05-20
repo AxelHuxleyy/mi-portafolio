@@ -2,24 +2,26 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-
-const links = [
-  { label: 'Inicio', href: '#hero' },
-  { label: 'Sobre mí', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Proyectos', href: '#projects' },
-  { label: 'Experiencia', href: '#experience' },
-];
+import { useLanguage } from '../lib/LanguageContext';
 
 export default function Navbar() {
+  const { lang, setLang, t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState('#hero');
 
+  const links = [
+    { label: t('nav.home'),       href: '#hero' },
+    { label: t('nav.about'),      href: '#about' },
+    { label: t('nav.skills'),     href: '#skills' },
+    { label: t('nav.projects'),   href: '#projects' },
+    { label: t('nav.experience'), href: '#experience' },
+  ];
+
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 20);
-      const sections = links.map((l) => l.href.slice(1));
+      const sections = ['hero', 'about', 'skills', 'projects', 'experience'];
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i]);
         if (el && el.getBoundingClientRect().top <= 150) {
@@ -31,6 +33,8 @@ export default function Navbar() {
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  const toggleLang = () => setLang(lang === 'es' ? 'en' : 'es');
 
   return (
     <header
@@ -77,46 +81,94 @@ export default function Navbar() {
           {'<Huxley />'}
         </motion.a>
 
-        {/* Desktop nav */}
-        <nav className="desktop-nav">
-          {links.map((link) => (
-            <motion.a
-              key={link.href}
-              href={link.href}
-              whileHover={{ y: -1 }}
-              style={{
-                fontFamily: "'Inter', sans-serif",
-                fontSize: '0.86rem',
-                fontWeight: active === link.href ? 600 : 450,
-                color:
-                  active === link.href
-                    ? 'var(--text-primary)'
-                    : 'var(--text-secondary)',
-                padding: '8px 14px',
-                borderRadius: '8px',
-                transition: 'all 0.25s ease',
-                position: 'relative',
-              }}
-            >
-              {link.label}
-              {active === link.href && (
-                <motion.div
-                  layoutId="nav-indicator"
-                  style={{
-                    position: 'absolute',
-                    bottom: 2,
-                    left: '20%',
-                    right: '20%',
-                    height: 2,
-                    background: 'var(--gradient-primary)',
-                    borderRadius: 2,
-                  }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                />
-              )}
-            </motion.a>
-          ))}
-        </nav>
+        {/* Desktop nav + lang toggle */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <nav className="desktop-nav">
+            {links.map((link) => (
+              <motion.a
+                key={link.href}
+                href={link.href}
+                whileHover={{ y: -1 }}
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: '0.86rem',
+                  fontWeight: active === link.href ? 600 : 450,
+                  color:
+                    active === link.href
+                      ? 'var(--text-primary)'
+                      : 'var(--text-secondary)',
+                  padding: '8px 14px',
+                  borderRadius: '8px',
+                  transition: 'all 0.25s ease',
+                  position: 'relative',
+                }}
+              >
+                {link.label}
+                {active === link.href && (
+                  <motion.div
+                    layoutId="nav-indicator"
+                    style={{
+                      position: 'absolute',
+                      bottom: 2,
+                      left: '20%',
+                      right: '20%',
+                      height: 2,
+                      background: 'var(--gradient-primary)',
+                      borderRadius: 2,
+                    }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                  />
+                )}
+              </motion.a>
+            ))}
+          </nav>
+
+          {/* Language Toggle Button */}
+          <motion.button
+            onClick={toggleLang}
+            whileHover={{ scale: 1.07 }}
+            whileTap={{ scale: 0.93 }}
+            title={lang === 'es' ? 'Switch to English' : 'Cambiar a Español'}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 6,
+              padding: '6px 14px',
+              borderRadius: 50,
+              border: '1px solid rgba(99,102,241,0.35)',
+              background: 'rgba(99,102,241,0.08)',
+              cursor: 'pointer',
+              fontFamily: "'Fira Code', monospace",
+              fontSize: '0.78rem',
+              fontWeight: 600,
+              color: 'var(--accent)',
+              letterSpacing: '0.04em',
+              transition: 'all 0.25s',
+              backdropFilter: 'blur(8px)',
+              marginLeft: 8,
+            }}
+          >
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={lang}
+                initial={{ opacity: 0, y: -6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 6 }}
+                transition={{ duration: 0.2 }}
+                style={{ display: 'flex', alignItems: 'center', gap: 5 }}
+              >
+                <span style={{ fontSize: '1rem' }}>
+                  {lang === 'es' ? '🇲🇽' : '🇺🇸'}
+                </span>
+                {lang === 'es' ? 'ES' : 'EN'}
+              </motion.span>
+            </AnimatePresence>
+            <span style={{ color: 'rgba(99,102,241,0.4)', fontSize: '0.7rem' }}>|</span>
+            <span style={{ color: 'var(--text-muted)', fontSize: '0.78rem' }}>
+              {lang === 'es' ? 'EN' : 'ES'}
+            </span>
+          </motion.button>
+        </div>
 
         {/* Hamburger */}
         <button
@@ -176,6 +228,31 @@ export default function Navbar() {
                   {link.label}
                 </motion.a>
               ))}
+
+              {/* Mobile language toggle */}
+              <div style={{ paddingTop: 16 }}>
+                <button
+                  onClick={toggleLang}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 8,
+                    padding: '10px 0',
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    fontFamily: "'Fira Code', monospace",
+                    fontSize: '0.9rem',
+                    fontWeight: 600,
+                    color: 'var(--accent)',
+                  }}
+                >
+                  <span style={{ fontSize: '1.1rem' }}>
+                    {lang === 'es' ? '🇺🇸' : '🇲🇽'}
+                  </span>
+                  {lang === 'es' ? 'Switch to English' : 'Cambiar a Español'}
+                </button>
+              </div>
             </div>
           </motion.div>
         )}
