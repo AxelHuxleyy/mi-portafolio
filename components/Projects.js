@@ -393,14 +393,14 @@ export default function Projects() {
     },
   ];
   const categories = [
-    t('projects.categories.filterAll'),
+    t('projects.filterAll'),
     'React',
     'React Native',
     'TypeScript',
     'Node.js',
   ];
   const filtered =
-    filter === 'Todos'
+    filter === t('projects.filterAll')
       ? PROJECTS
       : PROJECTS.filter((p) => p.tags.some((t) => t.includes(filter)));
 
