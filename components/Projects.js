@@ -405,10 +405,9 @@ export default function Projects() {
       : PROJECTS.filter((p) => p.tags.some((t) => t.includes(filter)));
 
   useEffect(() => {
-    console.log('executing...');
 
     setFilter(t('projects.filterAll'));
-  }, [lang])
+  }, [lang, t])
 
 
   return (

@@ -49,7 +49,7 @@ export default function Testimonials() {
               }}
             >
               {/* Quote Icon */}
-              <div 
+              <div
                 style={{
                   width: 48,
                   height: 48,
@@ -64,7 +64,7 @@ export default function Testimonials() {
               >
                 <Quote size={22} color="white" strokeWidth={2.5} />
               </div>
-              
+
               <p
                 style={{
                   fontSize: '0.94rem',
@@ -75,12 +75,12 @@ export default function Testimonials() {
                   flex: 1,
                 }}
               >
-                "{testimonial.text}"
+                &quot;{testimonial.text}&quot;
               </p>
-              
+
               {/* Author Info */}
               <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-                <div 
+                <div
                   style={{
                     width: 40,
                     height: 40,
