@@ -1,5 +1,5 @@
 'use client';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Github, ExternalLink } from 'lucide-react';
 import { useLanguage } from '../lib/LanguageContext';
@@ -245,8 +245,8 @@ function ProjectCard({ project, index }) {
 }
 
 export default function Projects() {
-  const [filter, setFilter] = useState('Todos');
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const [filter, setFilter] = useState(t('projects.filterAll'));
   const PROJECTS = [
     {
       title: t('projects.items.atomicDesign.title'),
@@ -403,6 +403,13 @@ export default function Projects() {
     filter === t('projects.filterAll')
       ? PROJECTS
       : PROJECTS.filter((p) => p.tags.some((t) => t.includes(filter)));
+
+  useEffect(() => {
+    console.log('executing...');
+
+    setFilter(t('projects.filterAll'));
+  }, [lang])
+
 
   return (
     <section id="projects" style={{ background: 'var(--bg-secondary)' }}>

@@ -15,13 +15,14 @@ export default function Navbar() {
     { label: t('nav.about'),      href: '#about' },
     { label: t('nav.skills'),     href: '#skills' },
     { label: t('nav.projects'),   href: '#projects' },
+    { label: t('nav.testimonials'), href: '#testimonials' },
     { label: t('nav.experience'), href: '#experience' },
   ];
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 20);
-      const sections = ['hero', 'about', 'skills', 'projects', 'experience'];
+      const sections = ['hero', 'about', 'skills', 'projects', 'testimonials', 'experience'];
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i]);
         if (el && el.getBoundingClientRect().top <= 150) {
