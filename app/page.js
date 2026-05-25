@@ -8,10 +8,12 @@ import Footer from '../components/Footer';
 import ScrollProgress from '../components/ScrollProgress';
 import ParticleField from '../components/ParticleField';
 import Navbar from '../components/temp';
+import { Analytics } from '@vercel/analytics/next';
 
 export default function Home() {
   return (
     <>
+      <Analytics />
       <ScrollProgress />
       <ParticleField />
       <Navbar />
